@@ -8,20 +8,22 @@
 
 char *get_path(char *command)
 {
+	char *path;
+	char *token;
+	char *cmd;
+	struct stat st;
+
 	if (command[0] == '/')
 	{
-		sruct stat st;
+		struct stat st;
+
 		if (stat(command, &st) == 0)
 			return (_strdup(command));
 		else
 			return (NULL);
 	}
 
-	char *path = _getenv("PATH");
-	char *token;
-	char *cmd;
-	sruct stat st;
-
+	path = _getenv("PATH");
 	token = strtok(path, ":");
 
 	while (token)

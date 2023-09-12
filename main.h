@@ -8,12 +8,15 @@
 #include <sys/wait.h>
 #include <sys/stat.h>
 #include <errno.h>
+#include <string.h>
 
+extern char **environ;
+
+char **_split(char *buffer, char *del);
+char *_getenv(const char *name);
+char *get_path(char *command);
 int _strlen(char *s);
-char *_strcpy(char *str, char *src, int n);
-int _strcmp(char *a1, char *a2);
+char *_strcpy(char *dest, char *src);
+int _strcmp(const char *s1, const char *s2);
 char *_strcat(char *dest, const char *src);
-int _strspn(char *s, char *c);
-char *_strchr(char *s, char c);
-
 #endif

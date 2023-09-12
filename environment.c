@@ -7,6 +7,7 @@
  * Return: the value of the environment variable
 */
 
+
 char *_getenv(const char *name)
 {
 	extern char **environ;
@@ -17,8 +18,8 @@ char *_getenv(const char *name)
 	{
 		token = strtok(environ[i], "=");
 
-		if (strcmp(name, token) == 0)
-			return (strtok(NULL, "\n");
+		if (_strcmp(name, token) == 0)
+			return (strtok(NULL, "\n"));
 		i++;
 	}
 	return (NULL);

@@ -18,47 +18,39 @@ int _strlen(char *s)
 }
 
 /**
-* _strcpy - copy string
-* @str: string
-* @src: string
-* Return: pointer to src
+ *  _strcmp - a function that compares two strings
+ * @s1: Pointer to the destination string.
+ * @s2: Pointer to the source string to be compared.
+ * Return: Pointer to the resulting string (same as dest).
 */
-char *_strcpy(char *str, char *src, int n)
+
+int _strcmp(const char *s1, const char *s2)
 {
-	int d = 0;
-
-	while (d < n && src[d] != '\0')
+	while (*s1 && *s1 == *s2)
 	{
-		str[d] = src[d];
-		d++;
+		s1++;
+		s2++;
 	}
-	while (d > n)
-	{
-		str[d] != '\0';
-		d++;
-	}
-
-	return (str);
+	return ((int)(unsigned char)(*s1) - (int)(unsigned char)(*s2));
 }
 
 /**
-* _strcmp - compares between two strings
-* @a1: string compared
-* @a2: string compared
-* Return: 0
+ * *_strcpy - a function that copies the string pointed to by src
+ * @dest: is the char to be checked
+ * @src: is the char to be checked
+ * Return: dest
 */
 
-int _strcmp(char *a1, char *a2)
+char *_strcpy(char *dest, char *src)
 {
-	int d;
+	int i = 0;
 
-	for (d = 0; a1[d] == a2[d] && a1[d]; d++)
-		;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
 
-	if (a1[d] > a2[d])
-		return (1);
-	if (a1[d] < a2[d])
-		return (-1);
-	return (0);
-		return (1);
+	return (dest);
 }
