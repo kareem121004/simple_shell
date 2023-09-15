@@ -11,10 +11,7 @@ int main(void)
 	char *buffer = NULL;
 	size_t buffer_size = 0;
 	int num_chars;
-	char *cmd;
 	char **args;
-	int status;
-	pid_t pid;
 
 	while (1)
 	{
@@ -45,30 +42,7 @@ int main(void)
 			exit(0);
 		}
 
-		pid = fork();
-
-		if (pid == -1)
-		{
-			perror("fork");
-			exit(EXIT_FAILURE);
-		}
-		if (pid == 0)
-		{
-			cmd = get_path(args[0]);
-
-			if (cmd)
-			{
-				execve(cmd, args, environ);
-			}
-			else
-			{
-				write(STDOUT_FILENO, "Invalid Command\n", 18);
-			}
-			free(cmd);
-			exit(0);
-		}
-		else
-			wait(&status);
+		execute(args);
 		free(args);
 	}
 	free(buffer);

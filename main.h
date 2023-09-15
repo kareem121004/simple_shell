@@ -12,6 +12,7 @@
 
 extern char **environ;
 
+void execute(char **args);
 char *_strdup(const char *str);
 char **_split(char *buffer, char *del);
 char *_getenv(const char *name);
