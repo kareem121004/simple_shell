@@ -14,6 +14,13 @@ char **_split(char *buffer, char *del)
 	int i = 0;
 
 	arr = malloc(sizeof(char *) * 1024);
+
+	if (!arr)
+	{
+		perror("malloc");
+		exit(EXIT_FAILURE);
+	}
+
 	token = strtok(buffer, del);
 
 	while (token)

@@ -25,49 +25,31 @@ char *_strcat(char *dest, const char *src)
 }
 
 /**
-* _strspn - length of prefix string
-* @s: intial str
-* @c: bytes
-* Return: number
+ * _strdup - Duplicate a string
+ * @str: The source string to duplicate.
+ * Return: A pointer to the newly duplicated string
 */
 
-int _strspn(char *s, char *c)
+char *_strdup(const char *str)
 {
-	int a, e, d;
+	char *dup;
+	int i = 0, len = 0;
 
-	for (a = 0; *(s + a) != '\0'; a++)
+	if (str == NULL)
+		return (NULL);
+	while (str[len] != '\0')
+		len++;
+
+	dup = malloc(sizeof(char *) * (len + 1));
+
+	if (dup != NULL)
 	{
-		d = 1;
-		for (e = 0; *(c + e) != '\0'; e++)
+		for (i = 0; i < len; i++)
 		{
-			if (*(s + a) == *(c + e))
-			{
-				d = 0;
-				break;
-			}
+			dup[i] = str[i];
 		}
-		if (d == 1)
-		break;
+		dup[len] = '\0';
 	}
-	return (a);
-}
 
-/**
-* _strchr - a character in string
-* @s: string
-* @c: character
-* Return: pointer
-*/
-
-char *_strchr(char *s, char c)
-{
-	unsigned int i;
-
-	for (i = 0; *(s + i) != '\0'; i++)
-		if (*(s + i) == c)
-			return (s + i);
-
-	if (*(s + i) == c)
-		return (s + i);
-	return ('\0');
+	return (dup);
 }
