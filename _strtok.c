@@ -20,13 +20,13 @@ unsigned int check(char c, const char *str)
 }
 
 /**
-* _strork - take a string into token
+* _strtok - take a string into token
 * @str: string
 * @ch: deli
 * Return: pointer or null
 */
 
-char *_strork(char *str, const char *ch)
+char *_strtok(char *str, const char *ch)
 {
 	unsigned int d;
 	static char *cl;
@@ -61,7 +61,7 @@ char *_strork(char *str, const char *ch)
 	{
 		na[d] = '\0';
 		na = na + d + 1;
-		if (*na = '\0')
+		if (*na == '\0')
 			na = NULL;
 	}
 	return (cl);

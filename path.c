@@ -24,7 +24,7 @@ char *get_path(char *command)
 	}
 
 	path = _getenv("PATH");
-	token = strtok(path, ":");
+	token = _strtok(path, ":");
 
 	while (token)
 	{
@@ -43,7 +43,7 @@ char *get_path(char *command)
 		if (stat(cmd, &st) == 0)
 			return (cmd);
 		free(cmd);
-		token = strtok(NULL, ":");
+		token = _strtok(NULL, ":");
 	}
 	return (NULL);
 }
