@@ -21,4 +21,6 @@ int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
 int _strcmp(const char *s1, const char *s2);
 char *_strcat(char *dest, const char *src);
+unsigned int check(char c, const char * str);
+char *_strork(char *str, const char *ch);
 #endif
