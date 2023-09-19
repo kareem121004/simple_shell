@@ -15,10 +15,10 @@ char *_getenv(const char *name)
 
 	while (environ[i])
 	{
-		token = _strtok(environ[i], "=");
+		token = strtok(environ[i], "=");
 
 		if (_strcmp(name, token) == 0)
-			return (_strtok(NULL, "\n"));
+			return (strtok(NULL, "\n"));
 		i++;
 	}
 	return (NULL);

@@ -21,12 +21,12 @@ char **_split(char *buffer, char *del)
 		exit(EXIT_FAILURE);
 	}
 
-	token = _strtok(buffer, del);
+	token = strtok(buffer, del);
 
 	while (token)
 	{
 		arr[i] = token;
-		token = _strtok(NULL, del);
+		token = strtok(NULL, del);
 		i++;
 	}
 	arr[i] = NULL;
