@@ -59,5 +59,5 @@ void shell_exit(char **comm)
 	}
 	exit_status = _atoi(comm[1]);
 	free_dp(comm);
-	exit(EXIT_SUCCESS);
+	exit(exit_status);
 }
