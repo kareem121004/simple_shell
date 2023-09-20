@@ -50,14 +50,6 @@ void _EOF(char *buff)
 
 void shell_exit(char **comm)
 {
-	int sTaTus = 0;
-
-	if (comm[1] == NULL)
-	{
-		free_dp(comm);
-		exit(EXIT_SUCCESS);
-	}
-	sTaTus = _atoi(comm[1]);
 	free_dp(comm);
-	exit(sTaTus);
+	exit(EXIT_SUCCESS);
 }
