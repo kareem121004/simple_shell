@@ -20,9 +20,9 @@ int main(int argc, char **argv)
 		buffer = readline();
 		if (buffer == NULL)
 		{
-			if (isatty(0))
+			if (isatty(STDIN_FILENO))
 			{
-				write(1, "\n", 1);
+				write(STDOUT_FILENO, "\n", 1);
 			}
 			return (status);
 		}
