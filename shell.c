@@ -31,7 +31,7 @@ int main(int ac, char **av, char **env)
 			buff[_strlen(buff) - 1] = '\0';
 			comm = token(buff, " \0");
 			free(buff);
-			if (_strcmp(comm[0], "exit") != 0)
+			if (_strcmp(comm[0], "exit") == 0)
 				shell_exit(comm);
 			else if (_strcmp(comm[0], "cd") != 0)
 				change_directory(comm[1]);
