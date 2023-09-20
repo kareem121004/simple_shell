@@ -3,6 +3,8 @@
 /**
  * main - start
  * Description: simple shell
+ * @argc: argc
+ * @argv: argument
  * Return: 0
 */
 
@@ -28,10 +30,8 @@ int main(int argc, char **argv)
 		args = _split(buffer);
 
 		if (!args)
-		{
 			continue;
-		}
-		status = execute(args, argv);
+		else
+			status = execute(args, argv);
 	}
-	free(buffer);
 }
