@@ -1,47 +1,37 @@
 #include "main.h"
 
 /**
-* main - Entry point
-* @ac: input
-* @av: pointer to array
-* @env: pointer to array
-* Return: 0
+ * main - start
+ * Description: simple shell
+ * Return: 0
 */
 
-int main(int ac, char **av, char **env)
+int main(int argc, char **argv)
 {
-	char *buff = NULL, **comm = NULL;
-	size_t buf_size = 0;
-	ssize_t chars_readed = 0;
-	int cic = 0;
-	(void)ac;
+	char *buffer = NULL;
+	int status = 0;
+	char **args;
+	(void) argc;
 
 	while (1)
 	{
-		cic++;
-		prompt();
-		signal(SIGINT, handle);
-		chars_readed = getline(&buff, &buf_size, stdin);
-		if (chars_readed == EOF)
-			_EOF(buff);
-		else if (*buff == '\n')
-			free(buff);
-		else
+		buffer = readline();
+		if (buffer == NULL)
 		{
-			buff[_strlen(buff) - 1] = '\0';
-			comm = token(buff, " \0");
-			free(buff);
-			if (_strcmp(comm[0], "exit") != 0)
-				shell_exit(comm);
-			else if (_strcmp(comm[0], "cd") != 0)
-				change_directory(comm[1]);
-			else
-				child(comm, av[0], env, cic);
+			if (isatty(0))
+			{
+				write(1, "\n", 1);
+			}
+			return (status);
 		}
-		fflush(stdin);
-		buff = NULL, buf_size = 0;
+
+		args = _split(buffer, " \t\n");
+
+		if (!args)
+		{
+			continue;
+		}
+		status = execute(args, argv);
 	}
-	if (chars_readed == -1)
-		return (EXIT_FAILURE);
-	return (EXIT_SUCCESS);
+	free(buffer);
 }
