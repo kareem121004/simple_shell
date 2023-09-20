@@ -50,14 +50,14 @@ void _EOF(char *buff)
 
 void shell_exit(char **comm)
 {
-	int o = 0;
+	int sTaTus = 0;
 
 	if (comm[1] == NULL)
 	{
 		free_dp(comm);
 		exit(EXIT_SUCCESS);
 	}
-	o = _atoi(comm[1]);
+	sTaTus = _atoi(comm[1]);
 	free_dp(comm);
-	exit(o);
+	exit(sTaTus);
 }

@@ -12,7 +12,7 @@
 void child(char **comm, char *name, char **env, int cic)
 {
 	int pid = 0;
-	int O = 0;
+	int status = 0;
 	int wait_error = 0;
 
 	pid = fork();
@@ -28,7 +28,7 @@ void child(char **comm, char *name, char **env, int cic)
 	}
 	else
 	{
-		wait_error = waitpid(pid, &O, 0);
+		wait_error = waitpid(pid, &status, 0);
 		if (wait_error < 0)
 		{
 		free_exit(comm);
