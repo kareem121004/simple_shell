@@ -15,12 +15,12 @@ char **_split(char *buffer)
 		return (NULL);
 	tmp = _strdup(buffer);
 	token = strtok(buffer, del);
-	/*if (token == NULL)
+	if (token == NULL)
 	{
 		free(tmp), tmp = NULL;
 		free(buffer), buffer = NULL;
 		return (NULL);
-	}*/
+	}
 	while (token)
 	{
 		l++;

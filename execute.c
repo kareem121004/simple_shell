@@ -20,7 +20,7 @@ int execute(char **args, char **argv)
 		{
 			perror(argv[0]);
 			freearr(args);
-			exit(127);
+			exit(0);
 		}
 	}
 	else
