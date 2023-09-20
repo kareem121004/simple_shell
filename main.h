@@ -7,20 +7,30 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 #include <sys/stat.h>
-#include <errno.h>
 #include <string.h>
 
-extern char **environ;
-
-void execute(char **args);
-char *_strdup(const char *str);
-char **_split(char *buffer, char *del);
-char *_getenv(const char *name);
-char *get_path(char *command);
 int _strlen(char *s);
 char *_strcpy(char *dest, char *src);
-int _strcmp(const char *s1, const char *s2);
-char *_strcat(char *dest, const char *src);
-unsigned int check(char c, const char *str);
-char *_strtok(char *str, const char *ch);
-#endif
+int _strcmp(char *s1,char *s2);
+char *_strcat(char *dest, char *src);
+int _atoi(char *s);
+
+int main(int ac, char **av, char **env);
+void prompt(void);
+void handle(int signals);
+void _EOF(char *buff);
+void shell_exit(char **comm);
+
+void child(char **comm, char *name, char **env, int cic);
+int change_directory(const char *path);
+
+void free_dp(char **comm);
+void free_exit(char **comm);
+
+char **token(char *buff, const char *s);
+
+void execute(char **comm, char *name, char **env, int cic);
+void print_env(char **env);
+char **_getPath(char **env);
+void msgERROR(char *name, int cic, char **comm);
+#endif /* _MAIN_H_ */

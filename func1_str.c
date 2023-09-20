@@ -8,49 +8,49 @@
 
 int _strlen(char *s)
 {
-	int count;
+	unsigned int count = 0;
 
-	for (count = 0; *s != '\0'; s++)
-	{
+	while (s[count])
 		count++;
-	}
 	return (count);
 }
 
 /**
- *  _strcmp - a function that compares two strings
+ * _strcmp - a function that compares two strings
  * @s1: Pointer to the destination string.
  * @s2: Pointer to the source string to be compared.
- * Return: Pointer to the resulting string (same as dest).
+ * Return: 1 or 0
 */
 
-int _strcmp(const char *s1, const char *s2)
+int _strcmp(char *s1, char *s2)
 {
-	while (*s1 && *s1 == *s2)
+	unsigned int i = 0;
+
+	while (s1[i])
 	{
-		s1++;
-		s2++;
+		if (s1[i] != s2[i])
+			return (0);
+		i++;
 	}
-	return ((int)(unsigned char)(*s1) - (int)(unsigned char)(*s2));
+	return (1);
 }
 
 /**
- * *_strcpy - a function that copies the string pointed to by src
+ * *_strcat - a function that concatenates two strings
  * @dest: is the char to be checked
  * @src: is the char to be checked
- * Return: dest
+ * Return: tmp
 */
 
-char *_strcpy(char *dest, char *src)
+char *_strcat(char *dest, char *src)
 {
-	int i = 0;
+	char *tmp = dest;
 
-	while (src[i] != '\0')
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
+	while (*dest)
+		dest++;
 
-	return (dest);
+	*dest++ = '/';
+	while (*src)
+		*dest++ = *src++;
+	return (tmp);
 }

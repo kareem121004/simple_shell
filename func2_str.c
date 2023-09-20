@@ -1,55 +1,53 @@
 #include "main.h"
 
 /**
-* _strcat - concatenate two strings
+* _strcpy - copy two strings
 * @dest: str
 * @src: str
 * Return: dest
 */
 
-char *_strcat(char *dest, const char *src)
+char *_strcpy(char *dest, char *src)
 {
-	int i, d;
+	char *aux = dest;
 
-	for (i = 0; dest[i] != '\0'; i++)
-		;
-
-	for (d = 0; src[d] != '\0'; d++)
-	{
-		dest[i] = src[d];
-		i++;
-	}
-
-	dest[i] = '\0';
-	return (dest);
+	while (*src)
+		*dest++ = *src++;
+	*dest = '\0';
+	return (aux);
 }
 
 /**
- * _strdup - Duplicate a string
- * @str: The source string to duplicate.
- * Return: A pointer to the newly duplicated string
+ * _atoi - converts string to integer
+ * @s: input.
+ * Return: sum
 */
 
-char *_strdup(const char *str)
+int _atoi(char *s)
 {
-	char *dup;
-	int i = 0, len = 0;
+	int si = 1;
+	unsigned int sum = 0;
+	char n_flag = 0;
 
-	if (str == NULL)
-		return (NULL);
-	while (str[len] != '\0')
-		len++;
-
-	dup = malloc(sizeof(char *) * (len + 1));
-
-	if (dup != NULL)
+	if (s == NULL)
+		return (0);
+	while (*s)
 	{
-		for (i = 0; i < len; i++)
+		if (*s == '-')
+			si *= -1;
+		if (*s >= '0' && *s <= '9')
 		{
-			dup[i] = str[i];
+			n_flag = 1;
+			sum = sum * 10 + (*s - '0');
 		}
-		dup[len] = '\0';
+		else if (*s < '0' || *s > '9')
+		{
+			if (n_flag == 1)
+				break;
+		}
+		s++;
 	}
-
-	return (dup);
+	if (si < 0)
+		sum = (-1 * (sum));
+	return (sum);
 }
