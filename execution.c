@@ -40,7 +40,7 @@ void execute(char **comm, char *name, char **env, int cic)
 					free_dp(pathWay);
 					free_exit(comm);
 				}
-			return;
+				return;
 			}
 	}
 	msgERROR(name, cic, comm);

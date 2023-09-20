@@ -31,7 +31,7 @@ void child(char **comm, char *name, char **env, int cic)
 		wait_error = waitpid(pid, &status, 0);
 		if (wait_error < 0)
 		{
-		free_exit(comm);
+			free_exit(comm);
 		}
 		free_dp(comm);
 	}
