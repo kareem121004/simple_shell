@@ -25,7 +25,7 @@ int main(int argc, char **argv)
 			return (status);
 		}
 
-		args = _split(buffer, " \t\n");
+		args = _split(buffer);
 
 		if (!args)
 		{

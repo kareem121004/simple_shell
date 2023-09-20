@@ -10,11 +10,12 @@
 #include <errno.h>
 #include <string.h>
 
+#define del " \t\n"
 extern char **environ;
 void freearr(char **arr);
 int execute(char **args, char **argv);
 char *_strdup(const char *str);
-char **_split(char *buffer, char *del);
+char **_split(char *buffer);
 char *_getenv(const char *name);
 char *get_path(char *command);
 int _strlen(char *s);
