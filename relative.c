@@ -52,11 +52,12 @@ void shell_exit(char **comm)
 {
 	int exit_status = 0;
 
-	if (comm[1] != NULL)
+	if (comm[1] == NULL)
 	{
-		exit_status = _atoi(comm[1]);
-
+		free_dp(comm);
+		exit(EXIT_SUCCESS);
 	}
+	exit_status = _atoi(comm[1]);
 	free_dp(comm);
 	exit(EXIT_SUCCESS);
 }
