@@ -3,7 +3,7 @@
 /**
 * token - token to split
 * @s: delimiter for strtok
-* @buff: pointer
+* @buff: pointer buffer
 * Return: string with comms
 */
 
