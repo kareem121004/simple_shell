@@ -13,8 +13,8 @@ void prompt(void)
 
 /**
 * handle - handle signals and path
-* @signals: handling
-* Return: nothing
+* @signals: handles signals
+* Return: void
 */
 
 void handle(int signals)
