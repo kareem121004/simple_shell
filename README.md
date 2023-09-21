@@ -1,2 +1,3 @@
 # simple_shell
-* collaberation project
+* Collaberation project
+* Original Unix opration system
