@@ -5,7 +5,7 @@
 * @ac: input
 * @av: pointer to array
 * @env: pointer to array
-* Return: 0
+* Return: 0 if succes
 */
 
 int main(int ac, char **av, char **env)
